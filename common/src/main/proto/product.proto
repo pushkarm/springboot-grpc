@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.example.common;
+
+option java_multiple_files = true;
+option java_package = "com.example.common.grpc";
+
+service ProductGrpcService {
+  rpc checkProduct(CheckProductAvailabilityRequest) returns (CheckProductAvailabilityResponse) {}
+}
+
+message CheckProductAvailabilityRequest {
+  int64 productId = 1;
+  int32 quantity = 2;
+}
+
+message CheckProductAvailabilityResponse {
+  bool available = 1;
+}
+
+message ErrorDetail {
+  // Error code
+  string errorCode = 1;
+  //Error message
+}
